@@ -23,27 +23,40 @@ class House: # Создаем Класс
             self.number_is_floors += value
             return self
 
-
-
     def __iadd__(self, value):
         self.number_is_floors += value
         return self
+
     def __radd__(self, value):
-        self.number_is_floors += value
-        return self
+        return self.__add__(value)
 
 
 
     def __lt__(self, other):
-        return self.number_is_floors < other.number_is_floors
+        if isinstance(other, House):
+            return self.number_is_floors < other.number_is_floors
+        elif isinstance(other, int):
+            return self.number_is_floors < other
     def __le__(self, other):
-        return self.number_is_floors <= other.number_is_floors
+        if isinstance(other, House):
+            return self.number_is_floors <= other.number_is_floors
+        elif isinstance(other, int):
+            return self.number_is_floors <= other
     def __gt__(self, other):
-        return self.number_is_floors > other.number_is_floors
+        if isinstance(other, House):
+            return self.number_is_floors > other.number_is_floors
+        elif isinstance(other, int):
+            return self.number_is_floors > other
     def __ge__(self, other):
-        return self.number_is_floors >= other.number_is_floors
+        if isinstance(other, House):
+            return self.number_is_floors >= other.number_is_floors
+        elif isinstance(other, int):
+            return self.number_is_floors >= other
     def __ne__(self, other):
-        return self.number_is_floors != other.number_is_floors
+        if isinstance(other, House):
+            return self.number_is_floors != other.number_is_floors
+        elif isinstance(other, int):
+            return self.number_is_floors != other
 
 
 
