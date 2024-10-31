@@ -26,13 +26,11 @@ class House: # Создаем Класс
 
 
     def __iadd__(self, value):
-        if isinstance(value, int):
-            self.number_is_floors += value
-            return self
+        self.number_is_floors += value
+        return self
     def __radd__(self, value):
-        if isinstance(value, int):
-            self.number_is_floors += value
-            return self
+        self.number_is_floors += value
+        return self
 
 
 
